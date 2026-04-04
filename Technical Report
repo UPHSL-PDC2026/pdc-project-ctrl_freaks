@@ -1,4 +1,4 @@
-Problem Description
+**Problem Description**
 
 The dataset contains 50,000 LinkedIn profiles with a compatibility_score column. The goal is to perform basic data analysis, including:
 
@@ -7,9 +7,21 @@ The dataset contains 50,000 LinkedIn profiles with a compatibility_score column.
    3. Sort profiles by compatibility score
    4. The objective is to compare sequential and parallel execution performance.
 
-Parallelization Approach
+**Parallelization Approach**
 
    1. Threading was used to execute the three operations concurrently.
    2. Each operation runs in a separate thread, sharing memory, and stores results in a shared dictionary.
    3. Threading avoids pickling and process creation overhead present in multiprocessing.
 
+**Performance Analysis**
+
+   1.The parallel version using threading ran significantly faster than sequential execution (par_time < seq_time) for this dataset.
+   2. Threading is particularly effective here because the dataset is small to medium-sized, and operations are relatively lightweight.
+   3. Multiprocessing would introduce high overhead due to copying the DataFrame, which makes it slower than threading in this case.
+
+**Challenges Encountered**
+
+   1. PicklingError when using lambda or nested functions with multiprocessing.
+   2. Identifying the correct CSV file inside the downloaded Kaggle dataset.
+   3. Synchronizing threads and storing outputs safely in a shared dictionary.
+   4. Understanding why threading is faster than multiprocessing for small datasets (due to overhead).
