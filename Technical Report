@@ -1,1 +1,15 @@
+Problem Description
+
+The dataset contains 50,000 LinkedIn profiles with a compatibility_score column. The goal is to perform basic data analysis, including:
+
+   1. Filter profiles with high compatibility (>70)
+   2. Compute average compatibility score
+   3. Sort profiles by compatibility score
+   4. The objective is to compare sequential and parallel execution performance.
+
+Parallelization Approach
+
+   1. Threading was used to execute the three operations concurrently.
+   2. Each operation runs in a separate thread, sharing memory, and stores results in a shared dictionary.
+   3. Threading avoids pickling and process creation overhead present in multiprocessing.
 
