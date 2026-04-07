@@ -78,3 +78,40 @@ Top 5 profiles sorted by compatibility.
 Execution times for sequential vs parallel.
 Summary Table
 Display all results and performance metrics in a clear, readable table.
+
+5. 5. Performance Analysis
+Threading vs Sequential
+- Sequential execution took 2.611 seconds for the dataset.
+- Parallel execution using threading took 2.856 seconds, slightly slower than sequential.
+- The operations (filtering, computing mean, sorting) are CPU-bound, and Python’s Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time. Thread creation and synchronization overhead   caused the parallel version to run slower than the sequential version for this dataset.
+Multiprocessing (optional)
+- Using multiprocessing without chunking incurs high overhead due to copying the DataFrame to separate processes.
+- Proper chunking of the dataset and aggregating results is required to achieve performance gains for CPU-heavy operations.
+
+Observations
+- Threading is efficient for I/O-bound tasks or light operations on small datasets.
+- Sequential execution can outperform threading for CPU-bound operations on small to medium datasets due to thread overhead and the GIL.
+- Multiprocessing can show real parallel speedup for CPU-heavy tasks if the dataset is large and properly split into chunks
+
+7. Team Members and Roles
+Name
+Role
+Jullie Anne Temporosa - Project Lead  
+Paule Kenneth Dela Rosa
+Raxell Louis I. Constantino - Data Analysis 
+Liz Samantha De Rojas - Documentation / Report Preparation
+David Jeremy Contreras - Documentation / Report Preparation
+Miguel Laxamana - Testing & Validation
+
+8. Instructions for Running the Project
+Install required libraries:
+pip install pandas kagglehub
+1.Open the Jupyter Notebook or Google Colab file.
+2. Run the notebook sequentially:
+  - Dataset download & loading
+  - Sequential execution
+  - Parallel execution (threading)
+  - Display results & comparison tables
+3. Inspect tables for filtered rows, average score, top 5 profiles, and execution times.
+
+
