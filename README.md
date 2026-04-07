@@ -79,7 +79,7 @@ Execution times for sequential vs parallel.
 Summary Table
 Display all results and performance metrics in a clear, readable table.
 
-5. 5. Performance Analysis
+5. Performance Analysis
 Threading vs Sequential
 - Sequential execution took 2.611 seconds for the dataset.
 - Parallel execution using threading took 2.856 seconds, slightly slower than sequential.
@@ -106,12 +106,12 @@ Miguel Laxamana - Testing & Validation
 8. Instructions for Running the Project
 Install required libraries:
 pip install pandas kagglehub
-1.Open the Jupyter Notebook or Google Colab file.
-2. Run the notebook sequentially:
+Open the Jupyter Notebook or Google Colab file.
+Run the notebook sequentially:
   - Dataset download & loading
   - Sequential execution
   - Parallel execution (threading)
   - Display results & comparison tables
-3. Inspect tables for filtered rows, average score, top 5 profiles, and execution times.
+Inspect tables for filtered rows, average score, top 5 profiles, and execution times.
 
 
